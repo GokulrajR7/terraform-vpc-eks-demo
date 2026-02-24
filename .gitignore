@@ -1,0 +1,13 @@
+# Terraform local files
+.terraform/
+
+# State files
+*.tfstate
+*.tfstate.*
+
+# Variable files (often contain secrets)
+*.tfvars
+
+# Plan files
+*.tfplan
+
