@@ -47,9 +47,16 @@ Action="sts:AssumeRole"
 })
 }
 
+#attach Cluster policy
 resource "aws_iam_role_policy_attachment" "eks_cluster_policy"{
 role=aws_iam_role.eks_cluster_role.name
 policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+# Attach EKS Service Policy
+resource "aws_iam_role_policy_attachment" "eks_service_policy" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 }
 
 
@@ -66,8 +73,10 @@ aws_subnet.subnet2.id
 ]
 }
 
-depends_on=[
-aws_iam_role_policy_attachment.eks_cluster_policy
+depends_on = [
+  aws_iam_role_policy_attachment.eks_cluster_policy,
+  aws_iam_role_policy_attachment.eks_service_policy
 ]
+
 }
 
