@@ -1,0 +1,40 @@
+variable "region" {
+  description = "AWS region"
+  type        = string
+}
+
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+}
+
+variable "public_subnet_cidr" {
+  description = "CIDR block for the public subnet"
+  type        = string
+}
+
+variable "private_subnet_cidr" {
+  description = "CIDR block for the private subnet"
+  type        = string
+}
+
+variable "public_az" {
+  description = "Availability zone for the public subnet"
+  type        = string
+}
+
+variable "private_az" {
+  description = "Availability zone for the private subnet"
+  type        = string
+}
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+  type        = string
+}
+
+variable "table_name" {
+  description = "Name of the DynamoDB table for state locking"
+  type        = string
+}
+
