@@ -6,7 +6,7 @@
 *.tfstate.*
 
 # Variable files (often contain secrets)
-*.tfvars
+# for learning i am pushing it.
 
 # Plan files
 *.tfplan
